@@ -1,0 +1,290 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+// node_modules\bootstrap\scss\bootstrap.scss
+
+$body-bg: lavender;
+$primary: #9e4aff;
+$secondary: #ffcf4a;
+
+$font-family-base: "Barlow", --apple-system, BlinkMacSystemFont,
+// Windows
+"Segoe UI",
+// Android
+"Roboto",
+// Basic web fallback
+"Helvetica Neue", Arial, sans-serif,
+// Emoji fonts
+"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$font-family-header: "Barlow Condensed" , --apple-system, BlinkMacSystemFont,
+// Windows
+"Segoe UI",
+// Android
+"Roboto",
+// Basic web fallback
+"Helvetica Neue", Arial, sans-serif,
+// Emoji fonts
+"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$nav-link-color: $dark;
+$nav-link-hover-color: $primary;
+$nav-link-transition: color .30s ease-in-out, background-color .15s ease-in-out, border-color .30s ease-in-out;
+
+html {
+    font-size: 18px;
+}
+
+.nav {
+    padding-top: 0.5em;
+    //margin-right: 2em;
+    //border-bottom: $dark solid 1px;
+     a {
+        border-bottom: $body-bg 2px solid;
+    }
+    a:hover {
+        border-bottom: 2px solid $secondary;
+    } 
+}
+
+.hero {
+    background-color: darksalmon;
+    min-height: 40vh;
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 1em 0 1em 0;
+
+    h1 {
+        margin: auto;
+        text-align: center;
+        font-family: $font-family-header;
+        font-weight: 500;
+        font-size: 80px;
+    }
+
+    img {
+        padding: 1em 0 1em 0;
+    }
+
+    .intro-text {
+        width: 400px;
+        margin: auto;
+
+    }
+
+
+}
+
+.portrait {
+    width: 200px;
+    display: block;
+}
+
+.header {
+    text-align: center;
+    background-color: $primary;
+    color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    h2 {
+        font-family: $font-family-base;
+        font-size: 3rem;
+        font-weight: 500;
+    }
+
+    
+}
+
+@mixin container {
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+
+}
+
+.projects {
+    @include container;
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        
+    }
+}
+
+.project {
+    width: 480px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 1px darkgray;
+
+    h3 {
+        color: $primary;
+        border-bottom: $secondary 1px solid;
+        font-size: 1.5rem;
+    }
+
+    .gatsby-image-wrapper {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .project-content {
+        @extend .m-3;
+    }
+}
+
+.project:hover {
+    cursor: pointer;
+}
+
+.popOut {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
+    z-index: 1;
+  }
+
+.popOutInner {
+    $popoutWidth: 700px;
+    $popoutHeight: 600px;
+    $popoutMarginWidth: calc(100% - #{$popoutWidth});
+    $popoutMarginHeight: calc(100% - #{$popoutHeight});
+    z-index: 2;
+    position: absolute;
+    left: calc(#{$popoutMarginWidth} / 2);
+    top: calc(#{$popoutMarginHeight} / 2);
+    background-color: $body-bg;
+    width: $popoutWidth;
+    //height: $popoutHeight;
+    border-radius: 3px;
+    box-shadow: -10px 10px $primary;
+
+    img {
+        border-radius: 0 0 3px 3px;
+    }
+
+    iframe {
+        border-radius: 0 0 3px 3px;
+        margin-bottom: -6.5px;
+        transform: translate(0 5px);
+    }
+
+    button {
+        border-radius: 20px;
+        background-color: $primary;
+        color: white;
+        float:right;
+        border-width: 0;
+        transform: translate(18px, -18px);
+        width: 2rem;
+        height: 2rem;
+    }
+
+
+}
+
+.popOutContent {
+    margin: 0 30px 2rem 30px;
+    h1 {
+        color: $primary;
+        line-height: 4rem;
+        border-bottom: $secondary 2px solid;
+    }
+    p {
+        margin-top: 10px;
+    }
+    
+}
+
+.skills-container {
+    @include container;
+    
+    .sub-category {
+
+        h2 {
+            text-align: center;
+        }
+    }
+}
+
+.skill {
+    width: 100px;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.skilltext {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#contact {
+    background-color: $dark;
+    color: white;
+    padding-top: 0.5rem;
+
+    h2 {
+        font-size: 3rem;
+    }
+    
+}
+
+.contact-container {
+    @include container;
+
+    
+    
+}
+
+.contact-method {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    color: white;
+
+    svg {
+        float: left;
+        //margin-right: 2rem;
+        font-size: 45px;
+        width: 45px !important;
+    }
+    a {
+        color: white;
+    }
+
+}
+
+.contact-text {    
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    a {
+        color: $secondary;
+        text-decoration: none;
+    }
+    a:hover {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.footer {
+    background-color: $primary;
+    color: white;
+    padding: 1rem;
+}
+/* body {
+    background-color: $body-bg;
+}  */
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
