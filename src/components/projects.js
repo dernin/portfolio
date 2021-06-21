@@ -40,12 +40,11 @@ export default function Projects() {
     var x = 0
     var y = 0
 
-    var sort = 'All'
+/*     function Sort(text) {
 
-    function Sort(text) {
+      edges = filterCat(edges, text)
 
-      sort = text
-      console.log(sort)
+      console.log(edges)
       return
     }
 
@@ -75,24 +74,15 @@ export default function Projects() {
             })
       }
 
-    }
-
-    function filterCat(arr, query) {
-      return arr.filter(function(el) {
-          return el.node.frontmatter.cat == query
-      })
-    }
+    } */
 
     return (<div class="projects-container" id="work">
       <div class="header">
         <h2>Example Work</h2>
       </div>
-    <div class="projects">
-       <div class="d-flex justify-content-around flex-wrap">
-          { CreateProjects(edges, sort)
-          }
-      </div>
-      </div>
+    
+      <ProjectConstructor edges={edges} />
+
     
 
   </div>)
@@ -172,4 +162,63 @@ function PopOut(props) {
   </div> )
 }
 
+class ProjectConstructor extends React.Component {
 
+  // Adapted from https://ibaslogic.com/instant-post-switching-in-a-gatsbyjs-site/
+
+  constructor(props) {
+    super(props)
+    this.props = props
+    this.edges = props.edges
+    this.state = {
+      items: this.props.edges,
+      filteredItems: this.props.edges,
+    }
+  }
+
+  handleItems(category) {
+    if (category == 'All') {
+      this.setState({
+        filteredItems: [...this.state.items],
+      })
+    }
+    else {
+      this.setState({
+        filteredItems: [
+          ...this.state.items.filter(edge => {
+            return edge.node.frontmatter.cat === category
+          }),
+        ],
+      })
+    }
+  }
+
+  render() {
+    return <div class='projects'>
+    <div class="sorting-buttons d-flex justify-content-center">
+      <div class="btn-group" role="group" aria-label="Sorting buttons">
+        <button type="button" class="btn btn-dark" onClick={() => this.handleItems('All')}>All</button>
+        <button type="button" class="btn btn-dark" onClick={() => this.handleItems('Web')}>Web</button>
+        <button type="button" class="btn btn-dark" onClick={() => this.handleItems('Video')}>Video</button>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around flex-wrap">
+      {this.state.filteredItems.map((edge, key) => {
+      return ( 
+          <Project key={key} src={edge.node.frontmatter.src} alt={edge.node.frontmatter.alt}
+            head={edge.node.frontmatter.title} excerpt={edge.node.excerpt} html={edge.node.html} 
+            link={edge.node.frontmatter.link} cat={edge.node.frontmatter.cat} />)
+        })
+      }
+      </div>
+    </div>
+  }
+
+
+}
+
+function filterCat(arr, query) {
+  return arr.filter(function(el) {
+      return el.node.frontmatter.cat == query
+  })
+}

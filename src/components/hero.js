@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react"
 import {hero, portrait} from "./hero.module.scss"
+import video from "/static/hero.webm" 
 
 export default function Hero(props) {
     
     return <div id={props.link} class="hero">
+        <div class="circle"></div>
         <h1>Reach New Audiences</h1>
         <img class="rounded-circle mx-auto portrait" src="https://gameographypod.com/wp-content/uploads/2020/12/download-1.png" alt="Devin Curtis"></img>
         <div class="intro-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non nibh venenatis, fringilla ipsum vel, ullamcorper magna. Praesent sit amet ligula purus. Cras maximus venenatis porta. Phasellus a pellentesque orci. Suspendisse felis nibh, vestibulum at efficitur nec, imperdiet eu ligula. Aliquam quis augue metus. Donec semper nisl ut varius auctor.</div>
