@@ -8,6 +8,7 @@ module.exports = {
   siteMetadata: {
     title: 'Devin Curtis | Web Developer & Videographer'
   },
+  pathPrefix: "/portfolio",
   /* Your site config here */
   plugins: [
             {
