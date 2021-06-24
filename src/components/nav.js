@@ -10,12 +10,4 @@ function Navbar(props) {
     </nav>
 }
 
-
-
-
-
-
-
-
-
 export default Navbar

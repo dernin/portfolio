@@ -32,49 +32,8 @@ export default function Projects() {
       `
     )
     
-
-    //console.log(data)
     let edges = data.allMarkdownRemark.edges
-    let length = data.allMarkdownRemark.edges.length
-    let rowLen = 3
-    var x = 0
-    var y = 0
 
-/*     function Sort(text) {
-
-      edges = filterCat(edges, text)
-
-      console.log(edges)
-      return
-    }
-
-    function CreateProjects(edges, sort) {
-
-      if (sort == 'All') {
-      
-        return edges.map((edge, key) => {
-
-          return <Project key={key} src={edge.node.frontmatter.src} alt={edge.node.frontmatter.alt}
-              head={edge.node.frontmatter.title} excerpt={edge.node.excerpt} html={edge.node.html} 
-              link={edge.node.frontmatter.link} cat={edge.node.frontmatter.cat} />
-
-            })
-      }
-      
-        
-      else {
-        let subset = filterCat(edges, sort)
-
-        return subset.map((edge, key) => {
-
-          return <Project key={key} src={edge.node.frontmatter.src} alt={edge.node.frontmatter.alt}
-              head={edge.node.frontmatter.title} excerpt={edge.node.excerpt} html={edge.node.html} 
-              link={edge.node.frontmatter.link} cat={edge.node.frontmatter.cat} />
-
-            })
-      }
-
-    } */
 
     return (<div class="projects-container" id="work">
       <div class="header">
@@ -101,7 +60,6 @@ class Project extends React.Component {
     }  
 
     pushPopOut = () => {
-      //console.log(this.state.popped)
       this.setState({
         popped: !this.state.popped
       })
@@ -196,10 +154,10 @@ class ProjectConstructor extends React.Component {
   render() {
     return <div class='projects'>
     <div class="sorting-buttons d-flex justify-content-center">
-      <div class="btn-group" role="group" aria-label="Sorting buttons">
-        <button type="button" class="btn btn-dark" onClick={() => this.handleItems('All')}>All</button>
-        <button type="button" class="btn btn-dark" onClick={() => this.handleItems('Web')}>Web</button>
-        <button type="button" class="btn btn-dark" onClick={() => this.handleItems('Video')}>Video</button>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons"  role="group" aria-label="Sorting buttons">
+        <button type="button" class="btn btn-secondary" onClick={() => this.handleItems('All')}>All</button>
+        <button type="button" class="btn btn-secondary" onClick={() => this.handleItems('Web')}>Web</button>
+        <button type="button" class="btn btn-secondary" onClick={() => this.handleItems('Video')}>Video</button>
       </div>
     </div>
     <div class="d-flex justify-content-around flex-wrap">
@@ -222,3 +180,5 @@ function filterCat(arr, query) {
       return el.node.frontmatter.cat == query
   })
 }
+
+

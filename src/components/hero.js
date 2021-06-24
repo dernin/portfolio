@@ -1,65 +1,29 @@
 import React, { useRef, useEffect } from "react"
-import {hero, portrait} from "./hero.module.scss"
-import video from "/static/hero.webm" 
+import * as LottiePlayer from "@lottiefiles/lottie-player"
+
 
 export default function Hero(props) {
-    
-    return <div id={props.link} class="hero">
-        <div class="circle"></div>
-        <h1>Reach New Audiences</h1>
-        <img class="rounded-circle mx-auto portrait" src="https://gameographypod.com/wp-content/uploads/2020/12/download-1.png" alt="Devin Curtis"></img>
-        <div class="intro-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non nibh venenatis, fringilla ipsum vel, ullamcorper magna. Praesent sit amet ligula purus. Cras maximus venenatis porta. Phasellus a pellentesque orci. Suspendisse felis nibh, vestibulum at efficitur nec, imperdiet eu ligula. Aliquam quis augue metus. Donec semper nisl ut varius auctor.</div>
-    </div>
+
+    return <HeroContent props={props} />
 }
 
-/* function Canvas() {
+class HeroContent extends React.Component {
 
-    const canvasRef = useRef(null);
-
-    //draw sine waves, alternating colors, in somewhat random positions going diagnally across the canvas MIGHT BE better to just use CSS
-
-    const draw = (ctx, frameCount) => {
-        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);
-        ctx.fillStyle = '#00000';
-        ctx.beginPath();
-        ctx.arc(50, 100, 20*Math.sin(frameCount*0.02)**2, 0, 2*Math.PI);
-        ctx.fill();
+    constructor(props) {
+        super(props)
     }
 
-    const calcSineY = (w, h, f, x) => {
-        //x is current x value
-        
-        return h - h * Math.sin(x * 2 * Math.PI * (f/w));
+    render() {
+        return <div id={this.props.link} class="hero">
+        {/*<script src={blur} type="text/javascript"></script>*/}
+        <div class="player-container">
+            <lottie-player autoplay preserveAspectRatio="xMaxYMax slice" speed="0.3" loop src='https://assets2.lottiefiles.com/packages/lf20_6sp3dige.json'></lottie-player>
+        </div>
+        <div class="hero-content">
+            <h1>Reach New Audiences</h1>
+            <img class="rounded-circle mx-auto portrait" src="https://gameographypod.com/wp-content/uploads/2020/12/download-1.png" alt="Devin Curtis"></img>
+            <div class="intro-text">Hi, I'm a full-stack web designer and videographer with a passion for projects that make a difference in people's lives. I specialize in e-learning, short form video, and web technologies. I believe that technology can be a driving force for good and equality in our communities. <a href="#contact">Let's make an impact together.</a> </div>
+        </div>
+    </div>
     }
-
-    const drawSine = (ctx, x) => {
-        
-    }
-
-    useEffect( () => {
-        const canvas = canvasRef.current;
-        const context = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        let w = canvas.width;
-        let h = canvas.height / 2; // amplitude of the wave
-        let f = 1; // f/w is frequency fraction
-
-        let frameCount = 0;
-        let animationFrameId;
-
-        const render = () => {
-            frameCount++;
-            draw(context, frameCount);
-            animationFrameId = window.requestAnimationFrame(render);
-        }
-        
-        render();
-
-        return () => {
-            window.cancelAnimationFrame(animationFrameId);
-        }
-        
-    }, [draw])
-
-    return <canvas ref={canvasRef}> </canvas>
-} */
+}

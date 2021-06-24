@@ -1,9 +1,11 @@
+@use "sass:color";
 @import "node_modules/bootstrap/scss/bootstrap.scss";
+
 
 // node_modules\bootstrap\scss\bootstrap.scss
 
 $body-bg: lavender;
-$primary: #9e4aff;
+$primary: #5F008F;
 $secondary: #ffcf4a;
 
 $font-family-base: "Barlow", --apple-system, BlinkMacSystemFont,
@@ -30,6 +32,13 @@ $nav-link-color: $dark;
 $nav-link-hover-color: $primary;
 $nav-link-transition: color .30s ease-in-out, background-color .15s ease-in-out, border-color .30s ease-in-out;
 
+$hero-height: calc(570px + 0.5rem);
+
+$link-color: $secondary;
+$link-hover-color: color.scale($secondary, $lightness: 20%);
+$link-decoration: none;
+$link-hover-decoration: none;
+
 html {
     font-size: 18px;
 }
@@ -47,11 +56,11 @@ html {
 }
 
 .hero {
-    background-color: darksalmon;
-    min-height: 40vh;
+    
+    height: 570px;
     width: 100%;
     margin-top: 0.5em;
-    padding: 1em 0 1em 0;
+    color: white;
 
     h1 {
         margin: auto;
@@ -68,8 +77,36 @@ html {
     .intro-text {
         width: 400px;
         margin: auto;
-
     }
+
+    .hero-content {
+        z-index: 1;
+        position: relative;
+    }
+
+    .player-container {
+        background-color: $dark;
+        z-index: -1;
+        height: $hero-height;
+        position: absolute;
+        width: 100%;
+    }
+
+    lottie-player {
+        background-color: transparent;
+        //position: absolute;
+        z-index: -1;
+        //height: $hero-height;
+        //min-height: $hero-height;
+        filter: blur(8px)
+        //padding: 0.5rem 0 0.5rem 0;
+    }
+
+
+
+
+
+
 
 
 }
