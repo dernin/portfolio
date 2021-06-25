@@ -1,6 +1,6 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {fab, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import {faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import {faPaperPlane} from '@fortawesome/free-solid-svg-icons'
 
 
@@ -18,10 +18,10 @@ export default Contact
 
 function ContactMethod(props) {
     return <div class="contact-method">
-        <a href={props.link} target="_blank">
+        <a href={props.link} rel="noreferrer" target="_blank">
             <FontAwesomeIcon icon={props.icon} />
         </a>
-            <div class="contact-text"><a href={props.link} target="_blank">{props.text}</a></div>
+            <div class="contact-text"><a href={props.link} rel="noreferrer" target="_blank">{props.text}</a></div>
         
         </div>
 }

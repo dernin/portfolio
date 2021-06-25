@@ -1,7 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql} from "gatsby"
 import Image from "./image"
-import { faSort } from "@fortawesome/free-solid-svg-icons"
+import AriaModal from "react-aria-modal"
+
 
 export default function Projects() {
 
@@ -63,24 +64,29 @@ class Project extends React.Component {
       this.setState({
         popped: !this.state.popped
       })
-      console.log(this.state.popped)
+    }
+
+    handleKey = (ev) => {
+      if (ev.key === "Enter" && !this.state.popped) {
+        this.pushPopOut()
+      }
     }
 
     render() {
       let imgHeight = 270
       return ( 
-      <div>
-        <div class="project m-1" onClick={this.pushPopOut}>
+      <>
+        <article tabIndex='0' class="project m-1" onClick={this.pushPopOut} onKeyDown={this.handleKey}>
           <Image src={this.props.src} alt={this.props.alt} height={imgHeight} />
           <div class="project-content p-3">
             <h3>{this.props.head}</h3>
             <div dangerouslySetInnerHTML={{__html: this.props.excerpt}}></div>
           </div>
-        </div>
+        </article>
         { this.state.popped &&
           <PopOut project={this.props} click={this.pushPopOut} />
         }
-      </div> )
+      </> )
     }
     
 
@@ -91,12 +97,11 @@ function PopOut(props) {
 
   let showVideo = false
   let createLink = false
-  console.log(project.link)
   let url
 
-  if (project.link != undefined) {
+  if (project.link !== undefined) {
     url = new URL(project.link)
-    if(url.hostname == 'player.vimeo.com') {
+    if(url.hostname === 'player.vimeo.com') {
       showVideo = true
     }
     else {
@@ -104,7 +109,7 @@ function PopOut(props) {
     }
   }
   return (
-  <div class="popOut" onClick={props.click}>
+  <AriaModal titleText="Project Details" onExit={props.click} initialFocus=".closePop" className="popOut" >
     <div class="popOutInner">
       <button class="closePop" onClick={props.click}>X</button>
       <div class="popOutContent">
@@ -113,11 +118,11 @@ function PopOut(props) {
 
         
       </div>
-      {createLink ? <a href={project.link} target="_blank"> <Image src={project.src} alt={project.alt} /> </a> :
-        showVideo ? <iframe src={url} width="700" height="393.75" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> :
+      {createLink ? <a href={project.link} rel="noreferrer" target="_blank"> <Image src={project.src} alt={project.alt} /> </a> :
+        showVideo ? <iframe title={project.head} src={url} width="700" height="393.75" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> :
         <Image src={project.src} alt={project.alt} /> }
     </div>
-  </div> )
+  </AriaModal> )
 }
 
 class ProjectConstructor extends React.Component {
@@ -135,7 +140,7 @@ class ProjectConstructor extends React.Component {
   }
 
   handleItems(category) {
-    if (category == 'All') {
+    if (category === 'All') {
       this.setState({
         filteredItems: [...this.state.items],
       })
@@ -175,10 +180,5 @@ class ProjectConstructor extends React.Component {
 
 }
 
-function filterCat(arr, query) {
-  return arr.filter(function(el) {
-      return el.node.frontmatter.cat == query
-  })
-}
 
 

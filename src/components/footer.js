@@ -3,9 +3,9 @@ import React from "react"
 function Footer(props) {
     var d = new Date()
     var year = d.getFullYear()
-    return <div class="footer">
+    return <footer class="footer">
         &copy; Devin Curtis {year}. Built with Gatsby.
-    </div>
+    </footer>
 }
 
 export default Footer

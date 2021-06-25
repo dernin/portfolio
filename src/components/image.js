@@ -25,7 +25,7 @@ const Image = ({src, ...rest}) => {
         `)
 
         const match = useMemo(
-            () => data.images.edges.find(({node}) =>  node.relativePath == src),
+            () => data.images.edges.find(({node}) =>  node.relativePath === src),
             [data, src]
         )
 

@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react"
-import * as LottiePlayer from "@lottiefiles/lottie-player"
+import React from "react"
+//import * as LottiePlayer from "@lottiefiles/lottie-player"
 
 
 export default function Hero(props) {
@@ -9,13 +9,8 @@ export default function Hero(props) {
 
 class HeroContent extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return <div id={this.props.link} class="hero">
-        {/*<script src={blur} type="text/javascript"></script>*/}
         <div class="player-container">
             <lottie-player autoplay preserveAspectRatio="xMaxYMax slice" speed="0.3" loop src='https://assets2.lottiefiles.com/packages/lf20_6sp3dige.json'></lottie-player>
         </div>

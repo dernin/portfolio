@@ -34,8 +34,6 @@ $nav-link-transition: color .30s ease-in-out, background-color .15s ease-in-out,
 
 $hero-height: calc(570px + 0.5rem);
 
-$link-color: $secondary;
-$link-hover-color: color.scale($secondary, $lightness: 20%);
 $link-decoration: none;
 $link-hover-decoration: none;
 
@@ -100,6 +98,18 @@ html {
         //min-height: $hero-height;
         filter: blur(8px)
         //padding: 0.5rem 0 0.5rem 0;
+    }
+
+    a {
+        color: $secondary;
+    }
+
+    a:hover {
+        color: color.scale($secondary, $lightness: 20%);
+    }
+
+    a:focus {
+        color: color.scale($secondary, $lightness: 20%);
     }
 
 
@@ -178,6 +188,10 @@ html {
 
 .project:hover {
     cursor: pointer;
+}
+
+.project:focus {
+    outline: $primary 2px solid;
 }
 
 .popOut {
