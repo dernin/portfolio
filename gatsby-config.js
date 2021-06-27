@@ -32,6 +32,7 @@ module.exports = {
                 path: `${__dirname}/src/skills`
               },
             },
+            "gatsby-plugin-gatsby-cloud",
             "gatsby-plugin-image",
             "gatsby-plugin-sharp",
             "gatsby-plugin-sass",
