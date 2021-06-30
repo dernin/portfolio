@@ -24,7 +24,6 @@
     "@popperjs/core": "^2.9.2",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^5.0.2",
-    "framer-motion": "^4.1.17",
     "gatsby": "^3.8.1",
     "gatsby-plugin-gatsby-cloud": "^2.8.1",
     "gatsby-plugin-google-gtag": "^3.8.0",
@@ -42,7 +41,6 @@
     "path-browserify": "^1.0.1",
     "postcss": "^8.3.5",
     "react": "^17.0.2",
-    "react-anime": "^4.0.4",
     "react-aria-modal": "^4.0.0",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
@@ -50,14 +48,6 @@
     "typescript": "^4.3.4"
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3",
     "prettier": "2.2.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
