@@ -99,7 +99,7 @@ function PopOut(props) {
   let createLink = false
   let url
 
-  if (project.link !== undefined) {
+  if (project.link) {
     url = new URL(project.link)
     if(url.hostname === 'player.vimeo.com') {
       showVideo = true
