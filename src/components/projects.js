@@ -36,8 +36,8 @@ export default function Projects() {
     let edges = data.allMarkdownRemark.edges
 
 
-    return (<div class="projects-container" id="work">
-      <div class="header">
+    return (<div className="projects-container" id="work">
+      <div className="header">
         <h2>Example Work</h2>
       </div>
     
@@ -76,9 +76,9 @@ class Project extends React.Component {
       let imgHeight = 270
       return ( 
       <>
-        <article tabIndex='0' class="project m-1" onClick={this.pushPopOut} onKeyDown={this.handleKey}>
+        <article tabIndex='0' className="project m-1" onClick={this.pushPopOut} onKeyDown={this.handleKey}>
           <Image src={this.props.src} alt={this.props.alt} height={imgHeight} />
-          <div class="project-content p-3">
+          <div className="project-content p-3">
             <h3>{this.props.head}</h3>
             <div dangerouslySetInnerHTML={{__html: this.props.excerpt}}></div>
           </div>
@@ -110,9 +110,9 @@ function PopOut(props) {
   }
   return (
   <AriaModal titleText="Project Details" onExit={props.click} initialFocus=".closePop" className="popOut" >
-    <div class="popOutInner">
-      <button class="closePop" onClick={props.click}>X</button>
-      <div class="popOutContent">
+    <div className="popOutInner">
+      <button className="closePop" onClick={props.click}>X</button>
+      <div className="popOutContent">
         <h1>{project.head}</h1>
         <div dangerouslySetInnerHTML={{__html: project.html}}></div> 
 
@@ -157,15 +157,15 @@ class ProjectConstructor extends React.Component {
   }
 
   render() {
-    return <div class='projects'>
-    <div class="sorting-buttons d-flex justify-content-center">
-      <div class="btn-group btn-group-toggle" data-toggle="buttons"  role="group" aria-label="Sorting buttons">
-        <button type="button" class="btn btn-secondary" onClick={() => this.handleItems('All')}>All</button>
-        <button type="button" class="btn btn-secondary" onClick={() => this.handleItems('Web')}>Web</button>
-        <button type="button" class="btn btn-secondary" onClick={() => this.handleItems('Video')}>Video</button>
+    return <div className='projects'>
+    <div className="sorting-buttons d-flex justify-content-center">
+      <div className="btn-group btn-group-toggle" data-toggle="buttons"  role="group" aria-label="Sorting buttons">
+        <button type="button" className="btn btn-secondary" onClick={() => this.handleItems('All')}>All</button>
+        <button type="button" className="btn btn-secondary" onClick={() => this.handleItems('Web')}>Web</button>
+        <button type="button" className="btn btn-secondary" onClick={() => this.handleItems('Video')}>Video</button>
       </div>
     </div>
-    <div class="d-flex justify-content-around flex-wrap">
+    <div className="d-flex justify-content-around flex-wrap">
       {this.state.filteredItems.map((edge, key) => {
       return ( 
           <Project key={key} src={edge.node.frontmatter.src} alt={edge.node.frontmatter.alt}

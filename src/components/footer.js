@@ -3,7 +3,7 @@ import React from "react"
 function Footer(props) {
     var d = new Date()
     var year = d.getFullYear()
-    return <footer class="footer">
+    return <footer className="footer">
         &copy; Devin Curtis {year}. Built with Gatsby.
     </footer>
 }

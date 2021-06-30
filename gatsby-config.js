@@ -32,6 +32,14 @@ module.exports = {
                 path: `${__dirname}/src/skills`
               },
             },
+            {
+              resolve: `gatsby-plugin-google-gtag`,
+              options: {
+                trackingIds: [
+                  `G-DND0PZRJ09`,
+                ]
+              }
+            },
             "gatsby-plugin-gatsby-cloud",
             "gatsby-plugin-image",
             "gatsby-plugin-sharp",

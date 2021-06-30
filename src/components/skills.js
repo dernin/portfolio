@@ -34,23 +34,23 @@ export default function Skills() {
 
 
     return <div id="skills">
-        <div class="header">
+        <div className="header">
             <h2>Skills</h2>
         </div>
         
-        <div class="skills-container">
-            <div class="sub-category">
+        <div className="skills-container">
+            <div className="sub-category">
                 <h2>Web Development & Design</h2>
-                <div class="d-flex flex-wrap justify-content-around">
+                <div className="d-flex flex-wrap justify-content-around">
                     {webSkills.map((edge, key) => {
                         return <Skill key={key} src={edge.node.frontmatter.src} skill={edge.node.frontmatter.skill} />
                         })
                     }
                 </div>
             </div>
-            <div class="sub-category">
+            <div className="sub-category">
                 <h2>Video Production</h2>
-                <div class="d-flex flex-wrap justify-content-around">
+                <div className="d-flex flex-wrap justify-content-around">
                     {videoSkills.map((edge, key) => {
                         return <Skill key={key} src={edge.node.frontmatter.src} skill={edge.node.frontmatter.skill} />
                         })
@@ -70,8 +70,8 @@ function filterCat(arr, query) {
 function Skill(props) {
     const imgWidth = 100
 
-    return <div class="skill m-5">
+    return <div className="skill m-5">
         <Image src={props.src} alt={props.skill} width={imgWidth} height={imgWidth} />
-        <div class="skilltext">{props.skill}</div>
+        <div className="skilltext">{props.skill}</div>
     </div>
 }
