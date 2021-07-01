@@ -125,6 +125,10 @@ html {
 .portrait {
     width: 200px;
     display: block;
+
+    img {
+        border-radius: 50%;
+    }
 }
 
 .header {
