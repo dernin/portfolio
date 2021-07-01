@@ -124,7 +124,7 @@ html {
 
 .portrait {
     width: 200px;
-    display: block;
+    display: block !important;
 
     img {
         border-radius: 50%;
