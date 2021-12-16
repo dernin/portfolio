@@ -2,5 +2,5 @@
 src: "gatsby.png"
 skill: "Gatsby"
 cat: "Web"
-order: "15"
+order: "10"
 ---

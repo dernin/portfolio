@@ -76,7 +76,7 @@ class Project extends React.Component {
       let imgHeight = 270
       return ( 
       <>
-        <article tabIndex='0' className="project m-1" onClick={this.pushPopOut} onKeyDown={this.handleKey}>
+        <article tabIndex='0' className="project m-3" onClick={this.pushPopOut} onKeyDown={this.handleKey}>
           <Image src={this.props.src} alt={this.props.alt} height={imgHeight} />
           <div className="project-content p-3">
             <h3>{this.props.head}</h3>
